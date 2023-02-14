@@ -1,8 +1,31 @@
 import Head from "next/head";
-
 import Card from "@/commons/card";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { initFirebase } from "@/firebase/firebaseApp";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
 
 export default function Home({ popularMovies, popularSeries }) {
+  initFirebase();
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth();
+  const router = useRouter();
+  const [user, loading, error] = useAuthState(auth);
+  // console.log("hola", auth);
+
+  // if (loading) {
+  //   return <div>Cargandoo...</div>;
+  // }
+  // if (user) {
+  //   router.push("/hola");
+  //   return <div>Cargandoo...</div>;
+  // }
+
+  const login = async () => {
+    const result = await signInWithPopup(auth, provider);
+    console.log(result.user);
+  };
+
   return (
     <>
       <Head>
@@ -26,9 +49,15 @@ export default function Home({ popularMovies, popularSeries }) {
                 <a href="#">Series</a>
               </li>
               <li>
-                <a href="#" role="button">
-                  Registrarse
-                </a>
+                {user ? (
+                  <button onClick={() => auth.signOut()} role="button">
+                    Logout
+                  </button>
+                ) : (
+                  <button onClick={login} role="button">
+                    Login
+                  </button>
+                )}
               </li>
             </ul>
           </nav>
