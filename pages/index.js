@@ -13,7 +13,9 @@ export default function Home({ popularMovies, popularSeries }) {
           <nav>
             <ul>
               <li>
-                <strong>The Movie Database</strong>
+                <h2>
+                  <strong>The Movie Database</strong>
+                </h2>
               </li>
             </ul>
             <ul>
@@ -31,13 +33,35 @@ export default function Home({ popularMovies, popularSeries }) {
             </ul>
           </nav>
         </div>
-        <h1>Popular Movies</h1>
+        <h1
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Popular Movies
+        </h1>
 
         <figure>
           <table>
             <thead>
               <tr>
                 {popularMovies.results.map((movie, i) => (
+                  <th>
+                    <Card title={movie} key={i} />
+                  </th>
+                ))}
+              </tr>
+            </thead>
+          </table>
+        </figure>
+
+        <h1 style={{ textAlign: "center" }}>Popular Series</h1>
+
+        <figure>
+          <table>
+            <thead>
+              <tr>
+                {popularSeries.results.map((movie, i) => (
                   <th>
                     <Card title={movie} key={i} />
                   </th>
