@@ -25,10 +25,13 @@ const Navbar = () => {
             </h2>
           </li>
           <li>
-            <a href="/movies">Movies</a>
+            <a href="/">Inicio</a>
           </li>
           <li>
-            <a href="/series">Series</a>
+            <a href="/movies?page=1">Movies</a>
+          </li>
+          <li>
+            <a href="/series?page=1">Series</a>
           </li>
         </ul>
         <ul>
