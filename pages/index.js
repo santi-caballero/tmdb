@@ -6,6 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Modal from "@/commons/modal";
+import SearchBar from "../components/SearchBar";
 
 export default function Home({ popularMovies, popularSeries }) {
   initFirebase();
@@ -96,36 +97,7 @@ export default function Home({ popularMovies, popularSeries }) {
         <title>TMDB</title>
       </Head>
       <div className="container-fluid">
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <h2>
-                  <strong>The Movie Database</strong>
-                </h2>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <a href="#">Movies</a>
-              </li>
-              <li>
-                <a href="#">Series</a>
-              </li>
-              <li>
-                {user ? (
-                  <button onClick={() => auth.signOut()} role="button">
-                    Logout
-                  </button>
-                ) : (
-                  <button onClick={login} role="button">
-                    Login
-                  </button>
-                )}
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <SearchBar />
         <h1
           style={{
             textAlign: "center",
