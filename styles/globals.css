@@ -1,0 +1,12 @@
+hr {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #002266,
+    transparent
+  );
+  border: 0;
+  height: 0.2rem;
+  max-width: 100%;
+  box-sizing: content-box;
+}
