@@ -1,15 +1,12 @@
 import "@picocss/pico";
 
 const Card = ({ title }) => {
-  // console.log(title);
   return (
     <>
       <div style={{ width: 300, height: 520 }}>
         <img
-          style={{ height: "100%" }}
+          style={{ height: "100%", paddingBottom: 40 }}
           src={`https://image.tmdb.org/t/p/original${title.poster_path}`}
-          // data-target="modal-example"
-          // onClick={toggleModal}
         ></img>
       </div>
     </>
