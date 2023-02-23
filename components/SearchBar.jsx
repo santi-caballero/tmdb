@@ -1,7 +1,10 @@
 import "@picocss/pico";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import Grid from "./Grid";
 const SearchBar = () => {
   const router = useRouter();
+  const [data, setData] = useState();
 
   const handleSubmit = async (event) => {
     if (event.key === "Enter") {
@@ -10,7 +13,8 @@ const SearchBar = () => {
           `https://api.themoviedb.org/3/search/multi?api_key=${process.env.NEXT_PUBLIC_TOKEN}&language=en-US&query=${event.target.value}&page=1&include_adult=false`
         );
         const results = await resTitle.json();
-        // console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^", results);
+        setData(results);
+        //console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^", results);
       }
     }
   };
@@ -26,6 +30,7 @@ const SearchBar = () => {
         required
         onKeyDown={handleSubmit}
       ></input>
+      {data ? <Grid titles={data} /> : ""}
     </>
   );
 };
