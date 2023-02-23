@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 
 import SearchBar from "../components/SearchBar";
 import Card from "@/commons/card";
-
+import GridScroll from "@/components/GridScroll";
 export default function Home({ popularMovies, popularSeries }) {
   initFirebase();
   const provider = new GoogleAuthProvider();
@@ -35,37 +35,11 @@ export default function Home({ popularMovies, popularSeries }) {
           Popular Movies
         </h1>
 
-        <figure>
-          <table>
-            <thead>
-              <tr>
-                {popularMovies.results.map((movie, i) => (
-                  <th key={i}>
-                    <Card title={movie} />
-                  </th>
-                ))}
-              </tr>
-            </thead>
-          </table>
-        </figure>
+        <GridScroll titles={popularMovies} />
 
         <h1 style={{ textAlign: "center" }}>Popular Series</h1>
 
-        <figure>
-          <table>
-            <thead>
-              <tr>
-                {popularSeries.results.map((serie, j) => (
-                  <th key={j}>
-                    <div style={{ width: 300, height: 520 }}>
-                      <Card title={serie} />
-                    </div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-          </table>
-        </figure>
+        <GridScroll titles={popularSeries} />
       </div>
     </>
   );

@@ -21,6 +21,7 @@ const Grid = ({ titles }) => {
           grid-template-rows: repeat(4, 2fr);
           grid-column-gap: 20px;
           grid-row-gap: 20px;
+          padding-left: 80px;
         }
       `}</style>
     </>
