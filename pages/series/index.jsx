@@ -1,20 +1,14 @@
 import Card from "@/commons/card";
 import "@picocss/pico";
 import { useRouter } from "next/router";
-
+import Grid from "@/components/Grid";
 const Series = ({ series, query }) => {
   const router = useRouter();
 
   return (
     <>
       <h1>Series</h1>
-      <div className="grid">
-        {series.results.map((serie, i) => (
-          <div key={i}>
-            <Card title={serie} />
-          </div>
-        ))}
-      </div>
+      <Grid titles={series} />
       <div class="grid">
         <div>
           <button
