@@ -2,6 +2,7 @@ import Card from "@/commons/card";
 import "@picocss/pico";
 import Modal from "@/commons/modal";
 import { useRouter } from "next/router";
+import Grid from "@/components/Grid";
 
 const Movies = ({ movies, query }) => {
   const router = useRouter();
@@ -20,13 +21,7 @@ const Movies = ({ movies, query }) => {
   return (
     <>
       <h1>Movies</h1>
-      <div className="grid">
-        {movies.results.map((movie, i) => (
-          <div key={i}>
-            <Card title={movie} />
-          </div>
-        ))}
-      </div>
+      <Grid titles={movies} />
       <div class="grid">
         <div>
           <button
