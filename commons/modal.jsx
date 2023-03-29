@@ -7,6 +7,8 @@ const Modal = ({ data, close }) => {
     if (data) document.documentElement.classList.add(isOpenClass);
     else document.documentElement.classList.remove(isOpenClass);
   }, [data]);
+
+  const favoritos = () => {};
   return (
     <>
       <dialog id="modal-example" open={!!data}>
@@ -23,6 +25,9 @@ const Modal = ({ data, close }) => {
           <p>Descripción: </p>
           <p>{data?.descripcion || "Descripción no disponible"} </p>
           <footer>
+            <a href="#" role="button" class="contrast" onClick={favoritos}>
+              Agregar a favoritos
+            </a>
             <a
               href="#confirm"
               role="button"
