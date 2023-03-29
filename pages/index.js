@@ -17,7 +17,6 @@ export default function Home({ popularMovies, popularSeries }) {
 
   const login = async () => {
     const result = await signInWithPopup(auth, provider);
-    // console.log(result.user);
   };
 
   return (

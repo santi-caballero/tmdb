@@ -2,6 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
